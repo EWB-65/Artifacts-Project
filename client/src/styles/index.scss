@@ -115,6 +115,7 @@ table {
 th, td {
   text-align: left;
   padding: 8px;
+  border: 1px solid var.$border-color;
 }
 
 tr:nth-child(even) {background-color: #f2f2f2;}

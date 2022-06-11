@@ -4,6 +4,15 @@ import {Link} from "react-router-dom";
 class Navbar extends React.Component{
     constructor(props) {
         super(props);
+        this.state = {
+            artifacts:[],
+        }
+    }
+
+    componentDidMount(){
+        fetch('http://localhost:5000/api/artifacts')
+            .then(r => r.json())
+            .then(artifacts => this.setState({artifacts}))
     }
 
     render() {
@@ -13,7 +22,13 @@ class Navbar extends React.Component{
                 <h2 className="nav-title">Artifacts System</h2>
             </Link>
             <div className="nav-item search-box">
-                <input className="search-input" type="text" placeholder="Search Artifacts.."/>
+                <input list="artifactSearchList" className="search-input" type="text" placeholder="Search Artifacts.."/>
+                <datalist id="artifactSearchList">
+                    {this.state.artifacts.map((artifact) => (
+                        <option key={artifact.id}>{artifact.name}</option>
+                    ))}
+
+                </datalist>
                 <button className="search-button">Search</button>
             </div>
             <ul className="main-menu">

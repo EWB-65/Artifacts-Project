@@ -8,7 +8,7 @@ class ArtifactTable extends Component{
         }
     }
     componentDidMount(){
-        fetch('http://localhost:5000/api/artifacts')
+        fetch('/api/artifacts')
             .then(r => r.json())
             .then(artifacts => this.setState({artifacts}))
     }
@@ -20,23 +20,29 @@ class ArtifactTable extends Component{
         return (
             <>
                 <table>
+                    <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Image</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Temperature</th>
+                        <th>Category</th>
                     </tr>
-
-
+                    </thead>
+                    <tbody>
                     {this.state.artifacts.map((artifact) => (
-                        <tr>
+                        <tr key={artifact.id}>
                             <td>{artifact.id}</td>
+                            <td><img width="100%" src={artifact.imageURL} alt={artifact.description}/></td>
                             <td>{artifact.name}</td>
                             <td>{artifact.description}</td>
                             <td>{artifact.temperature}</td>
+                            <td>{artifact.category}</td>
                         </tr>
 
                     ))}
+                    </tbody>
                 </table>
             </>
         )

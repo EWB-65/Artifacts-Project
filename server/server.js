@@ -4,30 +4,146 @@ const port = 5000
 const test = require('./routes/test');
 const cors = require("cors");
 const shortid = require('shortid');
+const fileUpload = require('express-fileupload');
+const path = require('path');
 
-const artifacts = [{id:"jdsf8ue",name:"Artifact Name",description:"This is a description",temperature:"21"}];
+const artifacts = [
+    {
+        "id": "1432FGHU",
+        "name": "the black vase",
+        "description": "A medium sized vase decorated with black paint",
+        "temperature": "27",
+        "category": "art"
+    },
+    {
+        "id": "8865UUiU",
+        "name": "iron wood club",
+        "description": "a club made of iron wood used for warfare",
+        "temperature": "27",
+        "category": "weapons"
+    },
+    {
+        "id": "9765HGSQ",
+        "name": "spear",
+        "description": "A fishing spear made of bamboo",
+        "temperature": "20",
+        "category": "weapons"
+    },
+    {
+        "id": "6511SSFU",
+        "name": "Didgeridoo",
+        "description": "A Didgeridoo of aproximatly 150cm in length",
+        "temperature": "27",
+        "category": "art"
+    },
+    {
+        "id": "7624GHYU",
+        "name": "boomerang",
+        "description": "a returning boomerang made of wood",
+        "temperature": "21",
+        "category": "weapons"
+    },
+    {
+        "id": "4356ABCD",
+        "name": "shield",
+        "description": "a shield with intricate patterns on its surface",
+        "temperature": "25",
+        "category": "weapons"
+    },
+    {
+        "id": "5565GYUI",
+        "name": "Bark canoes",
+        "description": "a canoe made of bark",
+        "temperature": "24",
+        "category": "watercraft"
+    },
+    {
+        "id": "6674HUOI",
+        "name": "teeth necklace",
+        "description": "a necklace made of the incisors of a kangaroo",
+        "temperature": "26",
+        "category": "art"
+    },
+    {
+        "id": "5583FGYU",
+        "name": "bone pendant",
+        "description": "a pendant made from the phalanges of a dingo",
+        "temperature": "27",
+        "category": "art"
+    },
+    {
+        "id": "4545FFEE",
+        "name": "set of dolls",
+        "description": "a set of dolls made from cassia nemophila and clay",
+        "temperature": "28",
+        "category": "art"
+    },
+    {
+        "id": "7778FGHH",
+        "name": "rattle",
+        "description": "a rattle made of sea snail shells",
+        "temperature": "19",
+        "category": "art"
+    },
+    {
+        "id": "6778FGHH",
+        "name": "toy spear",
+        "description": "a blunt wooden spear",
+        "temperature": "27",
+        "category": "art"
+    }
+];
+
+server.use(fileUpload())
 
 server.use(cors())
+
 
 server.use(express.json())
 
 server.use("/test", test)
 
+
 server.listen(port, () => {
-    console.log(`Listening on port ${port}`)
+    console.log(`Server is running on port ${port}`)
 })
 
+//Retrieve all artifacts
 server.get("/api/artifacts", async (req, res) => {
     res.header("Content-Type",'application/json');
     res.send(artifacts);
 });
 
+//Add new artifact
 server.post("/api/artifact", async (req, res) => {
     const newArtifact = req.body;
     newArtifact.id = shortid.generate();
     artifacts.push(newArtifact);
     res.json(artifacts);
 })
+
+server.post('/upload-image', async (req,res) =>{
+    if(req.files === null){
+        return res.status(400).json({msg:"No file uploaded"})
+    }
+
+    const file = req.files.file;
+
+    const fileExt = path.extname(file.name)
+
+    const randomFileName = shortid.generate() + fileExt;
+
+    const fileMovePath = path.join(__dirname, `../client/public/uploads/${randomFileName}`)
+
+    await file.mv(fileMovePath, err => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send(err);
+        }
+
+        res.json({fileName: randomFileName, filePath: `/uploads/${randomFileName}`});
+    });
+});
 
 class Artifact{
     constructor(artifactID, name, description, temp){
