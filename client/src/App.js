@@ -1,11 +1,12 @@
-import TestBackend from "./TestBackend";
+import React, {Fragment} from 'react';
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import AddNew from "./pages/AddNew";
-import React, {Fragment} from 'react';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./pages/Home";
+import Artifact from "./pages/Artifact";
 
-function App() {
+const App = () => {
   return (
     <>
         <Router>
@@ -15,6 +16,7 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<Home/>}/>
                 <Route path="/add-new" element={<AddNew/>}/>
+                <Route path="/artifact/:id" element={<Artifact/>}/>
             </Routes>
                 </div>
             </Fragment>

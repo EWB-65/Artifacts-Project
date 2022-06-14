@@ -1,0 +1,73 @@
+@use "var.scss";
+
+.artifacts-view{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.5em;
+}
+
+.artifact-preview{
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background-color: #333;
+  background-size: 100%;
+  background-position: center;
+  color:#fff;
+  border-radius: 4px;
+  position: relative;
+}
+
+*{
+  transition: 0.2s;
+}
+
+.artifact-preview .more-info{
+  height: 0;
+  opacity: 0;
+;
+}
+
+.artifact-preview:hover{
+  background-size: 110%;
+}
+
+.artifact-preview:hover .more-info{
+  height: 100%;
+  opacity: 1;
+}
+
+.artifact-preview:hover .details{
+  background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+}
+
+.artifact-preview .details{
+  background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6));
+  padding: 0.5em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.artifact-preview .title{
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+}
+
+.load-more{
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  font-size: 1.2em;
+
+}
+
+.load-more button{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.artifacts-category{
+  margin-bottom: 0.2em;
+}

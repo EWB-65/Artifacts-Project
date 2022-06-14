@@ -1,0 +1,8 @@
+@use "var.scss";
+
+.artifact-img{
+  width: 100%;
+  aspect-ratio: 5/2;
+  object-fit: contain;
+  border: 1px solid var.$border-color;
+}

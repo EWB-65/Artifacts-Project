@@ -4,7 +4,7 @@ class ArtifactTable extends Component{
     constructor() {
         super();
         this.state = {
-            artifacts:[],
+            artifacts:[]
         }
     }
     componentDidMount(){
@@ -16,7 +16,6 @@ class ArtifactTable extends Component{
 
     render()
     {
-        console.log(this.state.artifacts);
         return (
             <>
                 <table>
