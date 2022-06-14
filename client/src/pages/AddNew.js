@@ -59,7 +59,7 @@ class AddNew extends React.Component{
                 <label>Description</label>
                 <input required={true} id="artifactDescription" type="text"/>
                 <label>Temperature</label>
-                <input required={true} id="artifactTemperature" type="text"/>
+                <input required={true} id="artifactTemperature" type="number"/>
                 <label>Category</label>
                 <input required={true} id="artifactCategory" type="text"/>
                 <label>Image</label>

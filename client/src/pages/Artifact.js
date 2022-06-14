@@ -20,6 +20,10 @@ const Artifact = () => {
         <>
             <h1>{artifact.name}</h1>
             <img className="artifact-img" src={artifact.imageURL}/>
+            <p>Category: {artifact.category}</p>
+            <p>Storage Temperature: {artifact.temperature}°C</p>
+
+            <p>{artifact.description}</p>
         </>
     )
 }

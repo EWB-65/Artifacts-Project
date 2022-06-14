@@ -11,7 +11,9 @@ class Home extends React.Component{
     render() {
         return (
             <div>
-                <ArtifactsView/>
+                <ArtifactsView categorySort={"Latest"}/>
+                <ArtifactsView categorySort={"art"}/>
+                <ArtifactsView categorySort={"weapons"}/>
             </div>
         )
     }

@@ -1,11 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 const SearchItem = (props) => {
     return(
-        <>
-            <h2>{props.name}</h2>
-        </>
+        <Link className="search-item no-link-style" to={"/artifact/"+props.id}>
+            <img className="search-item-img" src={props.imageURL}/>
+            <div className="search-item-info">
+                <h2>{props.name}</h2>
+                <p>{props.description}</p>
+            </div>
+        </Link>
     )
 }
 
@@ -33,13 +37,13 @@ const Search = () => {
         <>
             <h1>Search results for "{params.query}"</h1>
             {artifacts.filter((artifact)=>{
-                if (params.query == ""){
+                if (params.query === ""){
                     return artifact
                 } else if (artifact.name.toLowerCase().includes(params.query.toLowerCase())){
                     return artifact
                 }
             }).slice(0,visibleArtifacts).map((artifact) => (
-                <SearchItem key={artifact.id} name={artifact.name}/>
+                <SearchItem key={artifact.id} id={artifact.id} name={artifact.name} description={artifact.description} imageURL={artifact.imageURL}/>
             ))}
 
             <div id="loadMore">
