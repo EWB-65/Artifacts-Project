@@ -27,6 +27,7 @@ class Navbar extends React.Component{
             <ul className="main-menu nav-item">
                 <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/add-new">Add New Artifact</NavLink></li>
+                <li><NavLink to="/update">Update</NavLink></li>
                 <li><NavLink to="/login">Login</NavLink></li>
             </ul>
             </div>

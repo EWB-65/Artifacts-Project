@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import axios from "axios";
 
 class AddNew extends React.Component{
@@ -12,8 +12,11 @@ class AddNew extends React.Component{
     }
 
     selectImage = e => {
-        this.state.file = e.target.files[0];
-        this.state.fileName = e.target.files[0].name;
+
+        this.setState({
+            file: e.target.files[0],
+            fileName: e.target.files[0].name
+        })
     }
 
     addArtifact = imageURL => {
@@ -33,14 +36,20 @@ class AddNew extends React.Component{
         const formData = new FormData();
         formData.append('file', this.state.file);
         try {
-            const res = await axios.post('/upload-image', formData, {
+            const res = await axios.post('/api/upload-image', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
             const {fileName, filePath} = res.data;
-            this.state.uploadedFile = {fileName, filePath}
+
+            this.setState({
+                uploadedFile: {fileName, filePath}
+            })
+
             this.addArtifact(filePath);
+
+
         } catch (err) {
             if(err.response.status === 500) {
                 console.log('Server problem')

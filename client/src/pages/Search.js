@@ -18,13 +18,15 @@ const Search = () => {
     const params = useParams();
     const [artifacts, setArtifacts] = useState([]);
     const [visibleArtifacts, setVisibleArtifacts] = useState(5)
-    const fetchUrl = "/api/artifacts/"
+
+    const fetchUrl = "/api/artifacts?search=" + params.query
+
 
     useEffect(() => {
         fetch(fetchUrl)
             .then(r => r.json())
             .then(artifacts => setArtifacts(artifacts))
-    }, [])
+    })
 
     const loadMoreArtifacts = () => {
         setVisibleArtifacts(visibleArtifacts+5)
@@ -36,13 +38,7 @@ const Search = () => {
     return(
         <>
             <h1>Search results for "{params.query}"</h1>
-            {artifacts.filter((artifact)=>{
-                if (params.query === ""){
-                    return artifact
-                } else if (artifact.name.toLowerCase().includes(params.query.toLowerCase())){
-                    return artifact
-                }
-            }).slice(0,visibleArtifacts).map((artifact) => (
+            {artifacts.slice(0,visibleArtifacts).map((artifact) => (
                 <SearchItem key={artifact.id} id={artifact.id} name={artifact.name} description={artifact.description} imageURL={artifact.imageURL}/>
             ))}
 

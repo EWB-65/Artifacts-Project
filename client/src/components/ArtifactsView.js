@@ -20,7 +20,7 @@ class ArtifactsView extends React.Component{
 
     loadMoreArtifacts() {
         this.setState({visibleArtifacts: this.state.visibleArtifacts + 4});
-        if (this.state.visibleArtifacts >= (this.state.artifacts.length - 4)) {
+        if (this.state.visibleArtifacts >= (this.state.artifacts.length - 3)) {
             document.getElementById("loadMore-"+this.props.categorySort).classList.add("hide");
         }
     }

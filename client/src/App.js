@@ -6,6 +6,8 @@ import AddNew from "./pages/AddNew";
 import Home from "./pages/Home";
 import Artifact from "./pages/Artifact";
 import Search from "./pages/Search";
+import ArtifactUpdate from "./pages/ArtifactUpdate";
+import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 
 const App = () => {
   return (
@@ -19,6 +21,7 @@ const App = () => {
                 <Route path="/add-new" element={<AddNew/>}/>
                 <Route path="/artifact/:id" element={<Artifact/>}/>
                 <Route path="/search/:query" element={<Search/>}/>
+                <Route path="/update" element={<ArtifactUpdate/>}/>
             </Routes>
                 </div>
             </Fragment>

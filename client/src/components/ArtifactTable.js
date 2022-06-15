@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import {Link} from "react-router-dom";
+
 
 class ArtifactTable extends Component{
     constructor() {
@@ -7,12 +9,12 @@ class ArtifactTable extends Component{
             artifacts:[]
         }
     }
+
     componentDidMount(){
         fetch('/api/artifacts')
             .then(r => r.json())
             .then(artifacts => this.setState({artifacts}))
     }
-
 
     render()
     {
@@ -27,6 +29,7 @@ class ArtifactTable extends Component{
                         <th>Description</th>
                         <th>Temperature</th>
                         <th>Category</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -38,6 +41,11 @@ class ArtifactTable extends Component{
                             <td>{artifact.description}</td>
                             <td>{artifact.temperature}</td>
                             <td>{artifact.category}</td>
+                            <td>
+                                <Link id={artifact.id + "-edit"} onClick={this.editArtifact()} to="#">Edit</Link>
+                                <Link id={artifact.id + "-save"} onClick={this.editArtifact()} to="#">Save</Link>
+                                <Link id={artifact.id + "-close"} onClick={this.editArtifact()} to="#">Close</Link>
+                            </td>
                         </tr>
 
                     ))}

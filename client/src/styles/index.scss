@@ -184,6 +184,12 @@ table {
   width: 100%;
 }
 
+table img{
+  width: 100px;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+
 th, td {
   text-align: left;
   padding: 8px;
