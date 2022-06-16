@@ -7,7 +7,8 @@ import Home from "./pages/Home";
 import Artifact from "./pages/Artifact";
 import Search from "./pages/Search";
 import ArtifactUpdate from "./pages/ArtifactUpdate";
-import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
+import Footer from "./components/Footer"
+
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
                 <Route path="/update" element={<ArtifactUpdate/>}/>
             </Routes>
                 </div>
+                <Footer/>
             </Fragment>
         </Router>
     </>
