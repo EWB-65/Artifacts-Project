@@ -30,23 +30,45 @@ server.listen(port, () => {
 })
 
 //Retrieve all artifacts
+//searchTerm query filters list to appropriate searchTerm
+//limit filters list to the specified number of artifacts
 server.get("/api/artifacts", async (req, res) => {
     res.header("Content-Type",'application/json');
 
     let searchTerm = req.query.search;
     let limit = req.query.limit;
+    let categoryFilter = req.query.category;
     let artifactsFilter = [];
 
     //If there is a search query, return any artifacts that include query in name or description
     if (searchTerm) {
         for (let a in artifacts){
+
             if ((artifacts[a].name.toLowerCase().includes(searchTerm.toLowerCase()))||(artifacts[a].description.toLowerCase().includes(searchTerm.toLowerCase()))){
                 artifactsFilter.push(artifacts[a])
             }
         }
-    } else {
+    } else{
         artifactsFilter = artifacts;
     }
+
+    if (categoryFilter) {
+        for (let a in artifacts){
+            if(artifacts[a].category === categoryFilter){
+                artifactsFilter.push(artifacts[a])
+            }
+        }
+    }
+
+    if (limit) {
+        artifactsFilter = artifactsFilter.slice(0,parseInt(limit))
+    }
+
+    const sortByDate = (a,b) => {
+        return new Date(b.dateAdded).getTime() - new Date (a.dateAdded).getTime();
+    }
+
+    artifactsFilter = artifactsFilter.sort(sortByDate)
 
     res.send(artifactsFilter);
 });
@@ -73,7 +95,13 @@ server.delete("/api/artifact/:id",(req, res) => {
 //Add new artifact
 server.post("/api/artifact", async (req, res) => {
     const newArtifact = req.body;
+
+    //Create random id for artifact when added
     newArtifact.id = shortid.generate();
+
+    //Add current date as date added for added
+    newArtifact.dateAdded = new Date().toJSON();
+
     artifacts.push(newArtifact);
     res.json(artifacts);
 
@@ -106,3 +134,13 @@ server.post('/api/upload-image', async (req,res) =>{
     });
 
 });
+
+//Update artifact
+server.delete("/api/artifact/:id",(req, res) => {
+    const i = artifacts.findIndex((artifact) => artifact.id === req.params.id);
+
+    artifacts[i] = req.body;
+
+    //write to artifacts file
+    fs.writeFileSync(artifactFile, JSON.stringify(artifacts));
+})

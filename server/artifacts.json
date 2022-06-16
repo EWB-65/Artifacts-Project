@@ -1,1 +1,123 @@
-[{"id":"1432FGHU","name":"the black vase","description":"A medium sized vase decorated with black paint","temperature":27,"category":"art","imageURL":"https://upload.wikimedia.org/wikipedia/commons/9/91/Portland_Vase_V%26A.jpg","history":"The history of this vase would be shown here. This is just an example of how the data would be represented. Therefore it is not necessary to be reading this. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},{"id":"8865UUiU","name":"iron wood club","description":"a club made of iron wood used for warfare","temperature":27,"category":"weapons","imageURL":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Arrernte_Keulen_EthnM.jpg/800px-Arrernte_Keulen_EthnM.jpg","history":""},{"id":"9765HGSQ","name":"spear","description":"A fishing spear made of bamboo","temperature":20,"category":"weapons","imageURL":"https://upload.wikimedia.org/wikipedia/commons/9/9c/Two_men_with_wooden_hair_ornaments%2C_spears_and_shields%2C_photograph_by_H._Basedow.jpg","history":""},{"id":"6511SSFU","name":"Didgeridoo","description":"A Didgeridoo of aproximatly 150cm in length","temperature":27,"category":"art","imageURL":"https://upload.wikimedia.org/wikipedia/commons/c/c9/Australiandidgeridoos.jpg","history":""},{"id":"7624GHYU","name":"boomerang","description":"a returning boomerang made of wood","temperature":21,"category":"weapons","imageURL":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Australia_Cairns_Boomerang.jpg/1280px-Australia_Cairns_Boomerang.jpg","history":""},{"id":"4356ABCD","name":"shield","description":"a shield with intricate patterns on its surface","temperature":25,"category":"weapons","imageURL":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Aboriginal_shields_NGV.jpg/1280px-Aboriginal_shields_NGV.jpg","history":""},{"id":"5565GYUI","name":"Bark canoes","description":"a canoe made of bark","temperature":24,"category":"watercraft","imageURL":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Canoe_making.jpg/1280px-Canoe_making.jpg","history":""},{"id":"6674HUOI","name":"teeth necklace","description":"a necklace made of the incisors of a kangaroo","temperature":26,"category":"art","imageURL":"https://images.squarespace-cdn.com/content/v1/577e2cd9579fb37464190690/1550636888756-2YFOTMJLAUK5L1XDQBO1/Kangaroo-teeth-necklace.jpg?format=500w","history":""},{"id":"5583FGYU","name":"bone pendant","description":"a pendant made from the phalanges of a dingo","temperature":27,"category":"art","imageURL":"https://upload.wikimedia.org/wikipedia/commons/a/af/Aboriginal_bone_necklace_-_Royal_Ontario_Museum_%2840308626972%29.jpg","history":""},{"id":"4545FFEE","name":"set of dolls","description":"a set of dolls made from cassia nemophila and clay","temperature":28,"category":"art","imageURL":"https://static2.lot-art.com/public/upl/6/Pair-of-Mojave-Indian-clay-pottery-dolls_1603489086_541.jpeg","history":""},{"id":"7778FGHH","name":"rattle","description":"a rattle made of sea snail shells","temperature":19,"category":"art","imageURL":"https://media.australian.museum/media/dd/images/Some_image.width-1200.a954758.jpg","history":""},{"id":"6778FGHH","name":"toy spear","description":"a blunt wooden spear","temperature":27,"category":"art","imageURL":"https://media.australian.museum/media/dd/images/Some_image.width-1200.4cd3dcf.jpg","history":""}]
+[
+  {
+    "id": "1432FGHU",
+    "name": "the black vase",
+    "description": "A medium sized vase decorated with black paint",
+    "temperature": 27,
+    "category": "art",
+    "imageURL": "/uploads/MwBlW_sq.jpg",
+    "history": "The history of this vase would be shown here. This is just an example of how the data would be represented. Therefore it is not necessary to be reading this. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "location": "Room 3",
+    "dateAdded": "2021-08-30T23:15:30.000Z"
+  },
+  {
+    "id": "8865UUiU",
+    "name": "iron wood club",
+    "description": "a club made of iron wood used for warfare",
+    "temperature": 27,
+    "category": "weapons",
+    "imageURL": "/uploads/iazIdlw7.jpg",
+    "history": "History would be here",
+    "location": "Room 4",
+    "dateAdded": "2021-08-30T23:15:30.000Z"
+  },
+  {
+    "id": "6511SSFU",
+    "name": "Didgeridoo",
+    "description": "A Didgeridoo of aproximatly 150cm in length",
+    "temperature": 27,
+    "category": "art",
+    "imageURL": "/uploads/ZPSYqMI1.jpg",
+    "history": "History would be here",
+    "location": "Room 3",
+    "dateAdded": "2021-08-30T23:15:30.000Z"
+  },
+  {
+    "id": "7624GHYU",
+    "name": "boomerang",
+    "description": "a returning boomerang made of wood",
+    "temperature": 21,
+    "category": "weapons",
+    "imageURL": "/uploads/q8B2bX4.jpg",
+    "history": "History would be here",
+    "location": "Room 3",
+    "dateAdded": "2021-08-30T23:15:30.000Z"
+  },
+  {
+    "id": "4356ABCD",
+    "name": "shield",
+    "description": "a shield with intricate patterns on its surface",
+    "temperature": 25,
+    "category": "weapons",
+    "imageURL": "/uploads/gbkeJh4k.jpg",
+    "history": "History would be here",
+    "location": "Room 3",
+    "dateAdded": "2021-08-30T23:15:30.000Z"
+  },
+  {
+    "id": "5565GYUI",
+    "name": "Bark canoes",
+    "description": "a canoe made of bark",
+    "temperature": 24,
+    "category": "watercraft",
+    "imageURL": "/uploads/DeF4mRag.jpg",
+    "history": "History would be here",
+    "location": "Room 3",
+    "dateAdded": "2021-08-30T23:15:30.000Z"
+  },
+  {
+    "id": "6674HUOI",
+    "name": "teeth necklace",
+    "description": "a necklace made of the incisors of a kangaroo",
+    "temperature": 26,
+    "category": "art",
+    "imageURL": "/uploads/a6tlThHX.jpg",
+    "history": "History would be here",
+    "location": "Room 3",
+    "dateAdded": "2021-08-30T23:15:30.000Z"
+  },
+  {
+    "id": "5583FGYU",
+    "name": "bone pendant",
+    "description": "a pendant made from the phalanges of a dingo",
+    "temperature": 27,
+    "category": "art",
+    "imageURL": "/uploads/dW2HqlsA.jpg",
+    "history": "History would be here",
+    "location": "Room 4",
+    "dateAdded": "2021-08-30T23:15:30.000Z"
+  },
+  {
+    "id": "4545FFEE",
+    "name": "set of dolls",
+    "description": "a set of dolls made from cassia nemophila and clay",
+    "temperature": 28,
+    "category": "art",
+    "imageURL": "/uploads/aSyjPInY.jpeg",
+    "history": "History would be here",
+    "location": "Room 3",
+    "dateAdded": "2022-05-15T23:15:30.000Z"
+  },
+  {
+    "id": "7778FGHH",
+    "name": "rattle",
+    "description": "a rattle made of sea snail shells",
+    "temperature": 19,
+    "category": "art",
+    "imageURL": "/uploads/R7aojQ0F.jpg",
+    "history": "History would be here",
+    "location": "Room 3",
+    "dateAdded": "2022-03-10T23:15:30.000Z"
+  },
+  {
+    "id": "6778FGHH",
+    "name": "toy spear",
+    "description": "a blunt wooden spear",
+    "temperature": 27,
+    "category": "art",
+    "imageURL": "/uploads/KW62sN8J.jpg",
+    "history": "History would be here",
+    "location": "Room 3",
+    "dateAdded": "2022-03-30T23:15:30.000Z"
+  }
+]

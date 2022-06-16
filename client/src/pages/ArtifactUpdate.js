@@ -22,32 +22,34 @@ const ArtifactItem = (props) => {
             method:'DELETE'
         })
             .then(r => r.json())
-            .then(artifact => setArtifact(artifact))
     }
 
-    const exitEdit = () => {
-        document.getElementById("edit-"+artifact.id).classList.remove("hide");
-        document.getElementById("save-"+artifact.id).classList.add("hide");
-        document.getElementById("delete-"+artifact.id).classList.add("hide");
 
-    }
 
     const saveArtifact = () => {
-        exitEdit()
+        const updatedArtifact = JSON.stringify({name:document.getElementById("artifactName"+artifact.id).textContent,description:document.getElementById("artifactDescription"+artifact.id).textContent,temperature:document.getElementById("artifactTemperature"+artifact.id).value,category:document.getElementById("artifactCategory"+artifact.id).textContent,history:artifact.history,location:document.getElementById("artifactLocation"+artifact.id).textContent, imageURL:artifact.imageURL, dateAdded:artifact.dateAdded, id:artifact.id })
+
+        console.log(updatedArtifact)
+        fetch(fetchURL,{
+            method:'PUT',
+            body:updatedArtifact
+        })
+            .then(r => r.json())
     }
 
     return(
         <tr>
             <td>{artifact.id}</td>
+            <td>{new Date(artifact.dateAdded).toUTCString()}</td>
             <td><img src={artifact.imageURL} alt={artifact.description}/></td>
-            <td>{artifact.name}</td>
-            <td>{artifact.description}</td>
-            <td>{artifact.temperature}</td>
-            <td>{artifact.category}</td>
+            <td id={"artifactName"+artifact.id} contentEditable="true">{artifact.name}</td>
+            <td id={"artifactDescription"+artifact.id} contentEditable="true">{artifact.description}</td>
+            <td id={"artifactTemperature"+artifact.id} contentEditable="true">{artifact.temperature}</td>
+            <td id={"artifactCategory"+artifact.id} contentEditable="true">{artifact.category}</td>
+            <td id={"artifactLocation"+artifact.id} contentEditable="true">{artifact.location}</td>
             <td>
-                <Link id={"edit-"+artifact.id} onClick={editArtifact} to="#">Edit</Link>
-                <Link id={"save-"+artifact.id} className="hide" onClick={saveArtifact} to="#">Save</Link>
-                <Link id={"delete-"+artifact.id} className="hide" onClick={deleteArtifact} to="#">Delete</Link>
+                <button id={"save-"+artifact.id} onClick={saveArtifact} to="#">Save</button>
+                <button id={"delete-"+artifact.id} onClick={deleteArtifact} to="#">Delete</button>
             </td>
         </tr>
     )
@@ -68,11 +70,13 @@ const ArtifactUpdate = () =>{
                 <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Date Added</th>
                     <th>Image</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Temperature</th>
+                    <th>Temperature (°C)</th>
                     <th>Category</th>
+                    <th>Location</th>
                     <th></th>
                 </tr>
                 </thead>

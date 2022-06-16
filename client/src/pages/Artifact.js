@@ -12,18 +12,15 @@ const Artifact = () => {
             .then(artifact => setArtifact(artifact))
     }, [])
 
-
-
-
-
     return(
         <>
             <h1>{artifact.name}</h1>
+            <small>Added {new Date(artifact.dateAdded).toUTCString()}</small>
             <img className="artifact-img" src={artifact.imageURL}/>
             <p>
                 <span>Storage Temperature: <strong>{artifact.temperature}°C</strong></span>
                 <span> | </span>
-                <span>Storage Location: <strong>{artifact.temperature}°C</strong></span>
+                <span>Storage Location: <strong>{artifact.location}</strong></span>
             </p>
             <span>Category: <strong>{artifact.category}</strong></span>
             <span> | </span>

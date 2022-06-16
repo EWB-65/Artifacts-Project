@@ -22,7 +22,7 @@ const App = () => {
                 <Route path="/add-new" element={<AddNew/>}/>
                 <Route path="/artifact/:id" element={<Artifact/>}/>
                 <Route path="/search/:query" element={<Search/>}/>
-                <Route path="/update" element={<ArtifactUpdate/>}/>
+                <Route path="/manage" element={<ArtifactUpdate/>}/>
             </Routes>
                 </div>
                 <Footer/>

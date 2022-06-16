@@ -20,7 +20,7 @@ class AddNew extends React.Component{
     }
 
     addArtifact = imageURL => {
-        const newArtifact = JSON.stringify({name:document.getElementById("artifactName").value,description:document.getElementById("artifactDescription").value,temperature:document.getElementById("artifactTemperature").value,category:document.getElementById("artifactCategory").value,history:document.getElementById("artifactHistory").value, imageURL:imageURL})
+        const newArtifact = JSON.stringify({name:document.getElementById("artifactName").value,description:document.getElementById("artifactDescription").value,temperature:document.getElementById("artifactTemperature").value,category:document.getElementById("artifactCategory").value,history:document.getElementById("artifactHistory").value,location:document.getElementById("artifactLocation").value, imageURL:imageURL})
         console.log(newArtifact)
         fetch('http://localhost:5000/api/artifact/', {
             method:'POST',
@@ -48,7 +48,6 @@ class AddNew extends React.Component{
             })
 
             this.addArtifact(filePath);
-            alert("Artifact added")
 
 
         } catch (err) {
@@ -63,22 +62,27 @@ class AddNew extends React.Component{
 
     render() {
         return (
+            <>
+            <p>All fields required</p>
             <form onSubmit={this.handleUpload} className="form">
                 <label>Name</label>
                 <input required={true} id="artifactName" type="text"/>
-                <label>Description</label>
-                <input required={true} id="artifactDescription" type="text"/>
-                <label>Storage Temperature</label>
-                <input required={true} id="artifactTemperature" type="number"/>
-                <label>Category</label>
-                <input required={true} id="artifactCategory" type="text"/>
-                <label>History</label>
-                <textarea required={true} id="artifactHistory" rows="10" cols="70"></textarea>
                 <label>Image</label>
                 <input required={true} id="artifactImage" type="file" accept="image/*" onChange={this.selectImage}/>
+                <label>History</label>
+                <textarea required={true} id="artifactHistory" rows="10" cols="70"></textarea>
+                <label>Description</label>
+                <input required={true} id="artifactDescription" type="text"/>
+                <label>Category</label>
+                <input required={true} id="artifactCategory" type="text"/>
+                <label>Storage Temperature</label>
+                <input required={true} id="artifactTemperature" type="number"/>
+                <label>Storage Location</label>
+                <input required={true} id="artifactLocation" type="text"/>
 
                 <input type="submit" className="form-submit" value="Add new artifact"/>
             </form>
+                </>
         )
     }
 }
